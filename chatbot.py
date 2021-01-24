@@ -10,7 +10,7 @@ bot = telebot.TeleBot(TOKEN)
 with open('questions.json') as f:
     jsonFile = json.load(f)
 
-count_tasks = 3                         # Общее количество вопросов в тесте
+count_tasks = 6                         # Общее количество вопросов в тесте
 current_task = 0                        # Текущее задание
 count_right_tasks = 0                   # Количество правильных ответов
 test_already_start = False              # Запущен тест или нет
@@ -20,7 +20,6 @@ array_of_questions = [0] * count_tasks  # Список заданий для в�
 def generate_tasks(array_of_questions, count_tasks):
     for x in range(count_tasks):
         array_of_questions[x] = random.randint(0, len(jsonFile['contents']))
-        print(array_of_questions[x])
 
 
 # Handles all text messages that contains the commands '/start'
